@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plastic Clicker - Cool Max Games</title>
+    <link rel="stylesheet" href="style.css">
+    <div id="horiHead" align="left">
+    <h1>Cool Max Games - Plastic Clicker</h1>
+    <a href = "../Home/index.html"><button id="goHome">Home</button></a>
+    <a href = "../viewGames/index.html"><button id="viewGames">View All Games</button></a>
+    </div>
+    <script src="src.js"></script>
+</head>
+<body>
+<br>
+<div id="startd">
+	<button id="startBtn" onclick="start()">Start Game</button>
+</div>
+<div id="body" style="display: none">
+<h3 id="ttlread">You have collected 0 bottles.</h3>
+<h3 id="ttlrecy">You have recycled 0 bottles</h3>
+<p id="expl">Your goal is to recycle 100,000 plastic bottles. Click the collect button to collect 1 bottle. Click the recycle button to recycle all collected bottles.</p>
+<button id="rdbtn" onclick="readclk()">Collect!</button>
+<button id="rebtn" onclick="recycleBtn()">Recycle</button>
+<button id="gmbtn" onclick="modmode()">GM</button>
+<button id="learn1" onclick="learnmenu()">Fact Storage</button>
+<h2 >Upgrades</h2>
+<div id="up1div" style="display: none">
+<button  id="up1" onclick="upgrade1()">Upgrade 1</button>
+<p id="up1desc">Upgrade: 1; Cost: 50 collected bottles; Result: collect +1 bottle per click;</p>
+</div>
+<div id="up1qdiv">
+<button id="up1q" onclick="up1quest()">Unlock Upgrade 1</button>
+</div>
+<div id="up1qdiv2" style="display: none">
+<button id="up1q2" onclick="up1quest2()">Unlock Upgrade 1</button>
+</div>
+<div id="up2div" style="display: none">
+<button  id="up2" onclick="upgrade2()">Upgrade 2</button>
+<p id="up2desc">Upgrade: 2; Cost: 1000 collected bottles; Result: collect +10 bottles per click;</p>
+</div>
+<div id="up2qdiv">
+<button id="up2q" onclick="up2quest()">Unlock Upgrade 2</button>
+</div>
+<div id="up2qdiv2" style="display: none">
+<button id="up2q2" onclick="up2quest2()">Unlock Upgrade 2</button>
+</div>
+<div id="up3div" style="display: none">
+<button  id="up3" onclick="upgrade3()">Upgrade 3</button>
+<p id="up3desc">Upgrade: 3; Cost: 10000 collected bottles; Result: collect +100 bottles per click;</p>
+</div>
+<div id="up3qdiv">
+<button id="up3q" onclick="up3quest()">Unlock Upgrade 3</button>
+</div>
+<div id="up3qdiv2" style="display: none">
+<button id="up3q2" onclick="up3quest2()">Unlock Upgrade 3</button>
+</div>
+</div>
+<script>
+	var ttlpges = 0;
+    var recBtls = 0;
+    var perclk = 1;
+    var totalRecy = document.getElementById("ttlrecy");
+    var totalPages = document.getElementById("ttlread");
+    var dplpclk = document.getElementById("expl");
+    var up1cost = document.getElementById("up1desc");
+    var up2cost = document.getElementById("up2desc");
+    var up3cost = document.getElementById("up3desc");
+    var up1cst = 50;
+    var up2cst = 1000;
+    var up3cst = 10000;
+    var up1count = 0;
+    var up2count = 0;
+    var up3count = 0; 
+    var pge = " bottle.";
+    var fact1 = "";
+    var fact2 = "";
+    var fact3 = "";
+    var fact4 = "";
+    var fact5 = "";
+    var fact6 = "";
+    function readclk() {
+    ttlpges += perclk;
+    updatettl();
+    }
+    function start() {
+    	document.getElementById("body").style.display = "block";
+    	document.getElementById("startd").style.display = "none";
+    }
+    function updatettl() {
+    	totalRecy.innerHTML = "You have recycled " + recBtls + " bottles."
+        totalPages.innerHTML = "You have collected " + ttlpges + " bottles.";
+        dplpclk.innerHTML = "Your goal is to recycle 100,000 plastic bottles. Click the collect button to collect " + perclk + pge + " Click the recycle button to recycle all collected bottles.";
+        up1cost.innerHTML = "Upgrade: 1; Cost: " + up1cst + " collected bottles; Result: +1 bottle per click;";
+        up2cost.innerHTML = "Upgrade: 2; Cost: " + up2cst + " collected bottles; Result: +10 bottle per click;";
+        up3cost.innerHTML = "Upgrade: 3; Cost: " + up3cst + " collected bottles; Result: +100 bottle per click;";
+        if(recBtls>99999){
+        alert("You completed your goal of recycling 100,000 plastic bottles!");
+        }
+        
+    }
+    function upgrade1() {
+    	if (ttlpges > (up1cst - 1)) {
+    	ttlpges -= up1cst;
+        perclk += 1;
+        up1cst += 5;
+        up1count += 1;
+        pge = " bottles.";
+        }
+        if (up1count == 15){
+        document.getElementById("up1qdiv2").style.display = "block";
+    	document.getElementById("up1div").style.display = "none";
+        }
+        updatettl();
+        }
+        function upgrade2() {
+    	if (ttlpges > (up2cst - 1)) {
+    	ttlpges -= up2cst;
+        perclk += 10;
+        up2cst += 50;
+        up2count += 1;
+        pge = " bottles.";
+        }
+        if (up2count == 20){
+        document.getElementById("up2qdiv2").style.display = "block";
+    	document.getElementById("up2div").style.display = "none";
+        }
+        updatettl();
+    }
+    function upgrade3() {
+    	if (ttlpges > (up3cst - 1)) {
+    	ttlpges -= up3cst;
+        perclk += 100;
+        up3cst += 1000;
+        up3count += 1;
+        pge = " bottles.";
+        }
+        if (up3count == 20){
+        document.getElementById("up3qdiv2").style.display = "block";
+    	document.getElementById("up3div").style.display = "none";
+        }
+        updatettl();
+    }
+    function up1quest() {
+    	alert("Fun Fact: According to National Geographic, 91% of plastic is not recycled (Parker).");
+alert("Click this 3 more times");
+alert("Click this 2 more times");
+alert("Click this 1 more times");
+        var answer1 = prompt("Fill in the blank: 91% of _______ is not recycled. (Answer must be spelled correctly)");
+        if(answer1==="plastic"){
+        document.getElementById("up1div").style.display = "block";
+        document.getElementById("up1qdiv").style.display = "none";
+        fact1 = "According to National Geographic, 91% of plastic is not recycled (Parker).\n";
+        }
+        else
+        {
+        alert("Sorry, try again next time");
+        }
+    }
+     function up2quest() {
+    	alert("Fun Fact: Plastic takes around 400 years to break down or decompose (Parker).");
+alert("Click this 3 more times");
+alert("Click this 2 more times");
+alert("Click this 1 more times");
+        var answer2 = prompt("About how many years does it take for plastic to break down or decompose. (Answer must be in numerical form)");
+        if(answer2==="400"){
+        document.getElementById("up2div").style.display = "block";
+        document.getElementById("up2qdiv").style.display = "none";
+        fact2 = "Plastic takes around 400 years to break down or decompose (Parker).\n";
+        }
+        else
+        {
+        alert("Sorry, try again next time");
+        }
+    }
+    function up3quest() {
+    	alert("Fun Fact: It is estimated that by 2050, there will be 12 billion metric tons of plastic in landfills (Parker).");
+alert("Click this 3 more times");
+alert("Click this 2 more times");
+alert("Click this 1 more times");
+        var answer3 = prompt("Fill in the blank: In 2050, there will be an estimated __ metric tons of plastic in landfills. (Answer must be spelled correctly)");
+        if(answer3==="12 billion" || answer3==="twelve billion" || answer3 === "12,000,000,000" || answer3 === "12,000,000,000"){
+        document.getElementById("up3div").style.display = "block";
+        document.getElementById("up3qdiv").style.display = "none";
+        fact3 = "It is estimated that by 2050, there will be 12 billion metric tons of plastic in landfills (Parker).\n";
+        }
+        else
+        {
+        alert("Sorry, try again next time");
+        }
+    }
+    function recycleBtn() {
+    recBtls += ttlpges;
+    ttlpges = 0;
+    updatettl();
+    }
+    function modmode(){
+   	var mod = prompt("enter passcode");
+    if (mod === "carlos"){
+    	ttlpges += 1000000000;
+        updatettl();
+    }
+    }
+    function up1quest2() {
+    alert("Fun Fact: In the last 6 decades, over 8 billion metric tons of plastic have been created (Parker). ");
+alert("Click this 3 more times");
+alert("Click this 2 more times");
+alert("Click this 1 more times");
+        var answer4 = prompt("Fill in the blank: In the last __ decades, over 8 billion metric tons of plastic have been created (Please put answer into nuemerical form).");
+        if(answer4=== "6"){
+        document.getElementById("up1div").style.display = "block";
+        document.getElementById("up1qdiv2").style.display = "none";
+        fact4 = "In the last 6 decades, over 8 billion metric tons of plastic have been created (Parker).\n";
+        }
+        else
+        {
+        alert("Sorry, try again next time");
+        }
+    }
+    function up2quest2() {
+    alert("Fun Fact: About only 12% of plastic in the world has been destroyed (Parker).");
+alert("Click this 3 more times");
+alert("Click this 2 more times");
+alert("Click this 1 more times");
+        var answer5 = prompt("About what percent of plastic in the world has been destroyed (Please answer with just a number and no symbols).");
+        if(answer5=== "12"||answer5==="12 percent"||answer5==="12%"){
+        document.getElementById("up2div").style.display = "block";
+        document.getElementById("up2qdiv2").style.display = "none";
+        fact5 = "About only 12% of plastic in the world has been destroyed (Parker).\n";
+        }
+        else
+        {
+        alert("Sorry, try again next time");
+        }
+    }
+    function up3quest2() {
+    alert("Fun Fact: A recent study shows that around 2050 there will be more plastic in the oceans than fish (Parker). ");
+alert("Click this 3 more times");
+alert("Click this 2 more times");
+alert("Click this 1 more times");
+        var answer6 = prompt("Fill in the blank: A recent study shows that around ____ there will be more plastic in the oceans than fish (Parker). ");
+        if(answer6=== "2050"){
+        document.getElementById("up3div").style.display = "block";
+        document.getElementById("up3qdiv2").style.display = "none";
+        fact6 = "A recent study shows that around 2050 there will be more plastic in the oceans than fish (Parker).\n";
+        }
+        else
+        {
+        alert("Sorry, try again next time");
+        }
+    }
+    function learnmenu() {
+    alert(fact1 + fact2 + fact3 + fact4 + fact5 + fact6);
+    }
+</script>
+</body>
+</html>
