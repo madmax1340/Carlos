@@ -1,13 +1,7 @@
-#horiHead{
-    background-image: url("../res/BackColorPurple.jpg");
-    border:5px solid lightgrey;
-}
-
-header h1 {
-    margin: 0;
-}
-
-html, body {
-    margin: 5;
-    padding: 5;
+header {
+  background-color: #6af;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
 }
