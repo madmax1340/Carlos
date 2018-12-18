@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>All Games - Cool Max Games</title>
-	<link rel="stylesheet" href="style.css">
-	<script src="src.js"></script>
-</head>
-<body>
-<header>
-  <div id="horiHead" align="center">
-	<h1>Cool Max Games - All Games</h1>
-	<a href = "../Home/index.html"><button id="goHome">Home</button></a>
-	<a href = "../viewGames/index.html"><button id="viewGames">View All Games</button></a>
-	</div>
-</header>
-	<hr>
-	<a href = "../PlasticClicker/PlasticClicker.html"><button id="PlayPlastic">Plastic Clicker</button></a>
-	<p>Plastic clicker is an educational game about plastic waste in our environment.</p><hr>
-	<h1>Sorry, more games coming soon</h1>
-</body>
-</html>
+header {
+  background-color: #6af;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
