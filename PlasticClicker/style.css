@@ -5,3 +5,7 @@ header {
   font-size: 20px;
   color: white;
 }
+#footer{
+ position:fixed;
+ bottom:0;
+}
