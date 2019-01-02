@@ -58,31 +58,32 @@
 </div>
 </div>
 <script>
-	var ttlpges = 0;
-    var recBtls = 0;
-    var perclk = 1;
-    var totalRecy = document.getElementById("ttlrecy");
-    var totalPages = document.getElementById("ttlread");
-    var dplpclk = document.getElementById("expl");
-    var up1cost = document.getElementById("up1desc");
-    var up2cost = document.getElementById("up2desc");
-    var up3cost = document.getElementById("up3desc");
-    var up1cst = 50;
-    var up2cst = 1000;
-    var up3cst = 10000;
-    var up1count = 0;
-    var up2count = 0;
-    var up3count = 0; 
-    var pge = " bottle.";
-    var fact1 = "";
-    var fact2 = "";
-    var fact3 = "";
-    var fact4 = "";
-    var fact5 = "";
-    var fact6 = "";
+    var ttlpges = 0,
+    recBtls = 0,
+    perclk = 1,
+    totalRecy = document.getElementById("ttlrecy"),
+    totalPages = document.getElementById("ttlread"),
+    dplpclk = document.getElementById("expl"),
+    up1cost = document.getElementById("up1desc"),
+    up2cost = document.getElementById("up2desc"),
+    up3cost = document.getElementById("up3desc"),
+    up1cst = 50,
+    up2cst = 1000,
+    up3cst = 10000,
+    up1count = 0,
+    up2count = 0,
+    up3count = 0,
+    pge = " bottle.",
+    fact1 = "",
+    fact2 = "",
+    fact3 = "",
+    fact4 = "",
+    fact5 = "",
+    fact6 = ""
     function readclk() {
     ttlpges += perclk;
     updatettl();
+    document.getElementById("rdbtn").blur();
     }
     function start() {
     	document.getElementById("body").style.display = "block";
@@ -252,6 +253,9 @@ alert("Click this 1 more times");
     }
     function learnmenu() {
     alert(fact1 + fact2 + fact3 + fact4 + fact5 + fact6);
+    }
+    document.onkeydown = function(e) {
+    if (e.key == " " || e.key == "Enter") e.preventDefault();
     }
 </script>
 	<div id="footer" align="center" style="position:fixed;bottom:0;">
