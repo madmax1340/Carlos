@@ -2,14 +2,21 @@
 <html>
 <head>
     <title>Raining Blocks - Cool Max Games</title>
-    
     <link rel="stylesheet" href="blockrain.css" />
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="blockrain.jquery.min.js"></script>
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="src.js"></script>
 </head>
 <body>
-      <div class="game" style="width:250px; height:500px;"></div>  
+<header>
+<div id="horiHead" align="center">
+<h1>Cool Max Games - Raining Blocks</h1>
+<a href = "../Home/index.html"><button id="goHome">Home</button></a>
+<a href = "../viewGames/index.html"><button id="viewGames">View All Games</button></a>
+</div>
+</header>
+    <div class="game" style="width:250px; height:500px;"></div>  
     <input type="hidden" value="Candy" onclick="$game.blockrain('theme', 'candy');">
     <input type="hidden" value="Pausar" onclick="$game.blockrain('pause');">
     <input type="hidden" value="Continuar" onclick="$game.blockrain('resume');">
