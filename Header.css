@@ -1,0 +1,11 @@
+header {
+  background-color: #6af;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+#footer{
+ position:fixed;
+ bottom:0;
+}
