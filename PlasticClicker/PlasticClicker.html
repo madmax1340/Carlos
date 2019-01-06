@@ -264,6 +264,13 @@ alert("Click this 1 more times");
     document.onkeydown = function(e) {
     if (e.key == " " || e.key == "Enter") e.preventDefault();
     }
+    window.onbeforeunload = function (e) {
+    e = e || window.event;
+    if (e) {
+    e.returnValue = 'Sure?';
+    }
+	    return 'Sure?';
+	}
 </script>
 	<footer id="footer" align="center">
         <h5 style="font-size: 9px; display: inline-block;">Cool Max Games 2018</h5>
