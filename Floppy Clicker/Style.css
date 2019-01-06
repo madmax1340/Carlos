@@ -1,1 +1,25 @@
-
+body {
+    background-color: darkgrey;
+}
+article {
+    background-color: lightgray;
+    border: 5px solid black;
+}
+header {
+    text-align: center;
+}
+button {
+    background-color: darkgray;
+    border: 2px solid black;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: wavy;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 8px;
+}
+button:hover {
+    background-color: white;
+    color: black;
+}
