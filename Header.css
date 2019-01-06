@@ -26,10 +26,6 @@ button {
     cursor: pointer;
 }
 
-.smallbutton {
-  font-size: 9px;
-}
-
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
