@@ -9,3 +9,6 @@ header {
  position:fixed;
  bottom:0;
 }
+html {
+  font-family: 'Staatliches', cursive;
+}
