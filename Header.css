@@ -18,11 +18,15 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 9px;
+  font-size: 12px;
   margin: 2px;
   background-image: radial-gradient(yellow, #f06d06);
 } button:hover {
     cursor: pointer;
+}
+
+.smallbutton {
+  font-size: 9px;
 }
 
 .disabled {
