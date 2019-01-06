@@ -1,11 +1,11 @@
-    var storage = 0;
+    var storage = 0,
     perClk = 1,
     perSecF = 0,
     upg1C = 25,
     upg2C = 150,
     upg3C = 750,
     upg4C = 375,
-    upg5C = 1000,
+    upg5C = 1000;
 function init() {
     window.setInterval(upd, 45);
     window.setInterval(perSec, 1000);
