@@ -14,7 +14,13 @@ html {
 }
 
 button {
-  border-image: radial-gradient(yellow, #f06d06);
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  background-image: radial-gradient(yellow, #f06d06);
 } button:hover {
     cursor: pointer;
 }
