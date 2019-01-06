@@ -5,6 +5,9 @@ header {
   font-size: 30px;
   color: white;
 }
+head {
+  background-color: white;
+}
 #footer{
  position:fixed;
  bottom:0;
