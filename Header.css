@@ -19,6 +19,7 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
+  font-weight: bold;
   margin: 2px;
   background-image: radial-gradient(yellow, #f06d06);
 } button:hover {
