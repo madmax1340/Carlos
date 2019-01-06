@@ -1,1 +1,30 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Floppy Clicker</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="A clicker game where you click a floppy disk to gain storage">
+    <meta name="keywords" content="Clicker,Game,HTML5,JavaScript">
+</head>
+<body onload="init()">
+    <header>
+        <h1>Floppy Clicker</h1>
+    </header>
+    <article id="art1">
+        <h2><u>Click to get Bytes!</u></h2>
+        <img id="icon" src="http://i64.tinypic.com/2941d3o.jpg" onclick="clkFloppy()">
+        <h3 id="disp1">Bytes In Storage: 0</h3>
+        <h3 id="disp2">Bytes per Click: 1</h3>
+        <h3 id="disp3">Bytes per Second: 0</h3>
+    </article>
+<br>
+    <article id="art2">
+        <h2><u>Upgrade Shop</u></h2>
+        <button id="upg1" onclick="upg1()">Plus 1 Byte per Click: 25 bytes</button>
+        <button id="upg2" onclick="upg2()">Plus 5 Bytes per Click: 150 bytes</button>
+        <button id="upg3" onclick="upg3()">Plus 25 Bytes per Click: 750 bytes</button>
+        <button id="upg4" onclick="upg4()">Plus 1 Byte per Second: 375 bytes</button>
+        <button id="upg5" onclick="upg5()">Plus 5 Bytes per Second: 1000 bytes</button>
+    </article>
+</body>
+</html>
