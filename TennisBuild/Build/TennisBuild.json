@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "TennisBuild.data.unityweb",
+"asmCodeUrl": "TennisBuild.asm.code.unityweb",
+"asmMemoryUrl": "TennisBuild.asm.memory.unityweb",
+"asmFrameworkUrl": "TennisBuild.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}
