@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>snake</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<title>Snake - Cool Max Games</title>
+	<link rel="stylesheet" href="../header.css">
+	<link rel="icon" href="../coolmaxgames.ico">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131762973-1"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+  	gtag('config', 'UA-131762973-1');
+	</script>
     </head>
-    <body onload="init()">
+<body onload="init()">
+<header>
+    <div id="horiHead" align="center">
+	<h1>Cool Max Games - All Games</h1>
+	<a href = "../home"><button id="goHome">Home</button></a>
+	<a href = "../viewGames/index"><button id="viewGames">View All Games</button></a>
+	<a href = "../ProductLinks.html"><button id="ProductLinkBtn">Product Links</button></a>
+	</div>
+</header>
         <div class="game">
             <canvas id="canvas" onclick="if (lost) restart()" width="715" height="475"></canvas>
         </div>
         <script src="main.js"></script>
         <script src="input.js"></script>
+    <footer id="footer" align="center">
+        <h5 style="font-size: 9px; display: inline-block;">Cool Max Games 2018</h5>
+        <a style="font-size: 9px; display: inline-block;" href="../Contact/index.html">Contact Us</a>
+        </footer>
+<br> <br>
     </body>
 </html>
