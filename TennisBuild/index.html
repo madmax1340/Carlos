@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+  <head id="head">
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Tennis</title>
+    <title>Tennis - Cool Max Games</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>  
     <script src="Build/UnityLoader.js"></script>
-    <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/TennisBuild.json", {onProgress: UnityProgress});
-    </script>
+    <link rel="icon" href="coolmaxgames.ico">
+    <link rel="stylesheet" href="Header.css">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131762973-1"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+  	gtag('config', 'UA-131762973-1');
+    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/TennisBuild.json", {onProgress: UnityProgress});
+	</script>
   </head>
   <body>
+  <header style="padding: 10px;">
+    <div id="horiHead" align="center">
+	  <h1>Cool Max Games - Tennis</h1>
+	  </div>
+    <nav>
+    	<a href = "../Home.html"><button id="goHome">Home</button></a>
+	    <a href = "../viewGames/index.html"><button id="viewGames">View All Games</button></a>
+	    <a href = "../ProductLinks.html"><button id="ProductLinkBtn">Product Links</button></a>
+    </nav>
+  </header>
     <div class="webgl-content">
       <div id="gameContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
@@ -20,6 +38,10 @@
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
         <div class="title">Tennis</div>
       </div>
+    </div>
+    <div id="footer" align="center" style="position:fixed;bottom:0;">
+	  <h5 style="font-size: 9px; display: inline-block;">Cool Max Games 2018</h5>
+	  <a style="font-size: 9px; display: inline-block;" href="../Contact/index.html">Contact Us</a>
     </div>
   </body>
 </html>
