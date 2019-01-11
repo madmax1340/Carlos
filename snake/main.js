@@ -74,23 +74,23 @@ function init() {
     window.setInterval(function() {
         if (!lost) {
             if (head.dir == "w") {
-                head.y -= 30;
+                head.y -= 10;
             } if (head.dir == "a") {
-                head.x -= 30;
+                head.x -= 10;
             } if (head.dir == "s") {
-                head.y += 30;
+                head.y += 10;
             } if (head.dir == "d") {
-                head.x += 30;
+                head.x += 10;
             }
             tails.forEach(function(elem) {
                 if (elem.dir == "w") {
-                    elem.y -= 30;
+                    elem.y -= 10;
                 } if (elem.dir == "a") {
-                    elem.x -= 30;
+                    elem.x -= 10;
                 } if (elem.dir == "s") {
-                    elem.y += 30;
+                    elem.y += 10;
                 } if (elem.dir == "d") {
-                    elem.x += 30;
+                    elem.x += 10;
                 }
             });
             if (testCollision(apple, 15)) {
@@ -145,5 +145,5 @@ function init() {
         ctx.fillStyle = 'black';
         if (lost) ctx.fillText("You Lost!", canvas.width/2-75, canvas.height/2);
     });
-    }, 200);
+    }, 66);
 }
