@@ -7,8 +7,6 @@ var toRender = [];
 
 var lost = false;
 
-var speed = 500;
-
 var head = {
     x: 240,
     y: 360,
@@ -57,7 +55,6 @@ function testCollision(obj, w) {
 function restart() {
     toRender = [];
     lost = false;
-    speed = 500;
     head = { x: 240, y: 360, dir: "d",};
     apple = { x: Math.random() * 400 + 25, y: Math.random() * 300 + 25,};
     tails = [{ x: head.x-30, y: head.y, par: undefined, dir: "d",},
@@ -76,7 +73,6 @@ function init() {
     ctx.strokeStyle = 'black';
     window.setInterval(function() {
         if (!lost) {
-            speed -= 0.5;
             if (head.dir == "w") {
                 head.y -= 30;
             } if (head.dir == "a") {
@@ -149,5 +145,5 @@ function init() {
         ctx.fillStyle = 'black';
         if (lost) ctx.fillText("You Lost!", canvas.width/2-75, canvas.height/2);
     });
-    }, speed);
+    }, 50);
 }
