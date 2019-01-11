@@ -74,7 +74,7 @@ function init() {
     ctx = canvas.getContext("2d");
     ctx.strokeStyle = 'black';
     window.setInterval(function() {
-        if (!lost) {
+        if (!lost && !menu) {
             if (head.dir == "w") {
                 head.y -= 30;
             } if (head.dir == "a") {
