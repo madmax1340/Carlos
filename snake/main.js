@@ -145,5 +145,5 @@ function init() {
         ctx.fillStyle = 'black';
         if (lost) ctx.fillText("You Lost!", canvas.width/2-75, canvas.height/2);
     });
-    }, 50);
+    }, 150);
 }
