@@ -5,7 +5,8 @@ window.requestAnimationFrame = requestAnimationFrame;
 
 var toRender = [];
 
-var lost = false;
+var lost = false,
+menu = true;
 
 var head = {
     x: 240,
@@ -55,6 +56,7 @@ function testCollision(obj, w) {
 function restart() {
     toRender = [];
     lost = false;
+    menu = false;
     head = { x: 240, y: 360, dir: "d",};
     apple = { x: Math.random() * 400 + 25, y: Math.random() * 300 + 25,};
     tails = [{ x: head.x-30, y: head.y, par: undefined, dir: "d",},
@@ -144,6 +146,7 @@ function init() {
         });
         ctx.fillStyle = 'black';
         if (lost) ctx.fillText("You Lost!", canvas.width/2-75, canvas.height/2);
+        if (menu) ctx.fillText("Click to start!", canvas.width/2-75, canvas.height/2);
     });
     }, 200);
 }
