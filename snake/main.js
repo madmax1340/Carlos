@@ -15,8 +15,8 @@ var head = {
 };
 
 var apple = {
-    x: Math.random() * 400 + 30,
-    y: Math.random() * 300 +30,
+    x: Math.random() * 400 + 25,
+    y: Math.random() * 300 + 25,
 };
 
 var tails = [{
@@ -95,7 +95,7 @@ function init() {
                     elem.x += 30;
                 }
             });
-            if (testCollision(apple, 15)) {
+            if (testCollision(apple, 25)) {
                 apple.x = Math.random() * 400 + 25;
                 apple.y = Math.random() * 300 + 25;
                 var parent = tails[tails.length-1];
@@ -135,7 +135,7 @@ function init() {
         ctx.font = '32px Verdana';
         ctx.fillText(String(tails.length-4), 15, 40);
         ctx.fillStyle = 'red';
-        ctx.fillRect(apple.x, apple.y, 30, 30);
+        ctx.fillRect(apple.x, apple.y, 25, 25);
         ctx.fillStyle = 'green';
         ctx.fillRect(head.x, head.y, 25, 25);
         ctx.strokeRect(head.x, head.y, 25, 25);
