@@ -96,8 +96,8 @@ function init() {
                 }
             });
             if (testCollision(apple, 25)) {
-                apple.x = Math.floor(Math.random() * 16) * 25 + 25;
-                apple.y = Math.floor(Math.random() * 12) * 25 + 25;
+                apple.x = Math.floor(Math.random() * 15) * 30 + 25;
+                apple.y = Math.floor(Math.random() * 11) * 30 + 25;
                 var parent = tails[tails.length-1];
                 if (parent.dir == "w") {
                     tx = parent.x;
