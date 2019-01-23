@@ -135,7 +135,7 @@ function init() {
         ctx.font = '32px Verdana';
         ctx.fillText(String(tails.length-4), 15, 40);
         ctx.fillStyle = 'red';
-        ctx.fillRect(apple.x, apple.y, 25, 25);
+        ctx.fillRect(apple.x, apple.y, 20, 20);
         ctx.fillStyle = 'green';
         ctx.fillRect(head.x, head.y, 25, 25);
         ctx.strokeRect(head.x, head.y, 25, 25);
