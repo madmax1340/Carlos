@@ -88,6 +88,8 @@
             var up6Used = 0;
             //points gained per second
             var perSecF = 1;
+            //A variable that says if the user is on mobile
+	    	var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
             //the function used in the mainMenu to open the rest of the game and hide the mainMenu
             function startGame(){
                 document.getElementById("play").style.display = "inline-block"
@@ -96,6 +98,14 @@
             //When the body tag loads it sets an interval to happen every second
            	function init() {
                 window.setInterval(perSec, 1000);
+                if(is_mobile===true){
+                	document.getElementById("Container1").style.float = none;
+                	document.getElementById("Container2").style.float = none;
+                	document.getElementById("Container3").style.float = none;
+                	document.getElementById("Container4").style.float = none;
+                	document.getElementById("Container5").style.float = none;
+                	document.getElementById("Container6").style.float = none;
+                }
             }
             //this function is called every second (interval of 1000)
             function perSec() {
