@@ -5,7 +5,7 @@
 </head>
 <body onload="init()" style="text-align: center;">
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, user-scalable=0;" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, user-scalable=0," />
 	<style>
 	@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap');
 	body,h1,h2,h3,h4,h5,h6,p,a {font-family: 'Gloria Hallelujah', cursive;}
@@ -48,7 +48,7 @@
             <p style="color: lightgray;">+$25 to every click</p><br>
         	</div>
             <!--This div is used to make one upgrade all the way to the right-->
-            <div id="container4" style="width:480px;height:150px;float: right;">
+            <div id="Container4" style="width:480px;height:150px;float: right;">
             <h3 id="Upgrade4Txt" style="display: inline-block;border-style: double;border-color: red;padding: 5px;">Buy <span style="color: red;font-weight: bold;">SUPER</span> <span style="font-weight: bold;color: purple;">EPIC</span> <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
             <button id="Buy4" class="myButton" onclick="upgrade4()">$100000</button>
             <p style="color: lightgray;">+$100 to every click</p><br>
@@ -99,12 +99,9 @@
            	function init() {
                 window.setInterval(perSec, 1000);
                 if(is_mobile===true){
-                	document.getElementById("Container1").style.float = none;
-                	document.getElementById("Container2").style.float = none;
-                	document.getElementById("Container3").style.float = none;
-                	document.getElementById("Container4").style.float = none;
-                	document.getElementById("Container5").style.float = none;
-                	document.getElementById("Container6").style.float = none;
+                	document.getElementById("Container2").style.float = "left";
+                	document.getElementById("Container4").style.float = "left";
+                	document.getElementById("Container6").style.float = "left";
                 }
             }
             //this function is called every second (interval of 1000)
@@ -350,58 +347,6 @@
             	user-select: none; 
 			}
 			
-/* Smartphones (portrait and landscape) ----------- 
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles 
-}
-/* Smartphones (landscape) ----------- 
-@media only screen 
-and (min-width : 321px) {
-/* Styles 
-}
-/* Smartphones (portrait) ----------- 
-@media only screen 
-and (max-width : 320px) {
-/* Styles 
-}
-/* iPads (portrait and landscape) ----------- 
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-/* Styles 
-}
-/* iPads (landscape) ----------- 
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) {
-/* Styles 
-}
-/* iPads (portrait) ----------- 
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-/* Styles 
-}
-/* Desktops and laptops ----------- 
-@media only screen 
-and (min-width : 1224px) {
-/* Styles 
-}
-/* Large screens ----------- 
-@media only screen 
-and (min-width : 1824px) {
-/* Styles 
-}
-/* iPhone 4 ----------- 
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
-/* Styles 
-}*/
 			</style>
 </body>
 </html>
