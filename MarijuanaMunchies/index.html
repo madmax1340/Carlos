@@ -5,71 +5,65 @@
 </head>
 <body onload="init()" style="text-align: center;">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=devide-height, initial-scale=1.0">
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
 	<style>
 	@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap');
 	body,h1,h2,h3,h4,h5,h6,p,a {font-family: 'Gloria Hallelujah', cursive;}
 	</style>
     <!--gameScene contains all scenes such as mainMenu and the game itself (the 'play' div) -->
-	<div id="gameScene" style="display: inline-block; text-align: left; background-color: black;color: white;padding: 10px;width:1000px; height: 900px;">
+	<div id="gameScene" style="display: inline-block; text-align: left; background-color: black;color: white;padding: 10px;max-width:1000px;width: 100%;height: 100%">
         <!-- mainMenu contains everything that you see when the page is first loaded-->
-        <div id="mainMenu" style="width:1000px; height:900px;">
+        <div id="mainMenu" style="max-width:1000px;width: 100%;height: 100%">
             <img src="420MarleyLogo.jpg" style="display: block; margin-left: auto; margin-right: auto;width: 25%;height: 25%;" alt="420 Marley">
             <h1 id="title" style="text-align: center;"><span style="border: double;border-color: green;border-width: 10px;padding: 5px;"> Marijauna's Munchies </span></h1>
             <br><br><hr style="border: 5px solid green;border-radius: 3px;"><br>
             <button class="myButton" onclick="startGame()" style="display: block; margin-left: auto; margin-right: auto;width: 50%;">Start</button>
         </div>
         <!-- play contains the clicker game itself-->
-        <div id="play" style="display: none;width:1000px; height: 900px;">
+        <div id="play" style="display: none;max-width:1000px;width: 100%;height: 100%;">
 		<h1 id="title" style="text-align: center;"><span style="border: double;border-color: green;border-width: 10px;padding: 5px;"> Marijauna's Munchies </span></h1>
-		<div id="container0" style="display: inline-block;width: 1000px;height: 150px;">
+		<div id="container0" style="display: inline-block;max-width: 1000px;width: 100%;height: 150px;">
 			<h2 id="everyClk" style="display: inline-block;">Click to sell $1 of marijuana</h2>
 			<a class="myButton" style="display: inline-block;" onclick="clickBtn()"><img src="MarijuanaButton.png"></a>
-            <img src="RunningWeed.gif" style="float: right;margin-right: 17%;">
+            <img src="RunningWeed.gif" style="float: right;margin-right: 17%;display: inline-flex;">
             </div>
 			<h3 id="totalTitle">You have $0</h3>
-            <hr style="border: 5px solid green;border-radius: 3px;">
+			<br><br><br><hr style="border: 5px solid green;border-radius: 3px;">
             <!-- A container to hold 2 upgrades on the same line -->
-            <div id="Container1" style="">
+            <div id="Container1" class="upgradeContainer"style="float: left;">
             <h3 id="Upgrade1Txt" style="display: inline-block;">Buy <span style="color: lightgray;">regular</span> Tortilla Chips</h3>
             <button id="Buy1" class="myButton" onclick="upgrade1()">$10</button>
-            <!--This div is used to make one upgrade all the way to the right-->
-            <div style="float: right;">
-            <h3 id="Upgrade2Txt" style="display: inline-block;">Buy <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
-            <button id="Buy2" style="display: inline-block;"class="myButton" onclick="upgrade2()">$100</button>
-            </div>
-            <br>
             <p style="display: inline-block;color: lightgray;">+$1 to every click</p>
-            <p style="float: right;color: lightgray;">+$5 to every click</p>
+        	</div>
+            <!--This div is used to make one upgrade all the way to the right-->
+            <div id="Container2"class="upgradeContainer"style="float: right;">
+            <h3 id="Upgrade2Txt" style="display: inline-block;">Buy <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
+            <button id="Buy2" style=""class="myButton" onclick="upgrade2()">$100</button>
+            <p style="color: lightgray;">+$5 to every click</p>
 		    </div>
             <!-- A container to hold 2 upgrades on the same line -->
-            <div id="Container2" style="">
+            <div id="Container3" class="upgradeContainer"style="display: inline-block;">
             <h3 id="Upgrade3Txt" style="display: inline-block;">Buy <span style="font-weight: bold;color: purple;">EPIC</span> <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
             <button id="Buy3" class="myButton" onclick="upgrade3()">$1000</button>
+            <p style="color: lightgray;">+$25 to every click</p>
+        	</div>
             <!--This div is used to make one upgrade all the way to the right-->
-            <div style="float: right;">
+            <div id="container4" style="width:480px;height:150px;float: right;">
             <h3 id="Upgrade4Txt" style="display: inline-block;border-style: double;border-color: red;padding: 5px;">Buy <span style="color: red;font-weight: bold;">SUPER</span> <span style="font-weight: bold;color: purple;">EPIC</span> <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
             <button id="Buy4" class="myButton" onclick="upgrade4()">$100000</button>
-            </div>
-            <div style="display: inline-flex;justify-content: space-between;width: 1000px;height: 50px;">
-            <p style="color: lightgray;">+$25 to every click</p>
             <p style="color: lightgray;float: right;">+$100 to every click</p>
             </div>
-            </div><hr>
             <!-- A container to hold 2 upgrades on the same line -->
-            <div id="Container3" style="">
+            <div id="Container5" class="upgradeContainer"style="display: inline-block;">
             <h3 id="Upgrade5Txt" style="display: inline-block;">Buy <span style="color: gray;">orginary</span> french fries</h3>
             <button id="Buy5" class="myButton" onclick="upgrade5()">$50000</button>
+            <p style="color: lightgray;">+$1 every second</p>
+        	</div>
             <!--This div is used to make one upgrade all the way to the right-->
-            <div style="float: right;">
+            <div id="Container6" class="upgradeContainer"style="float: right;">
             <h3 id="Upgrade6Txt" style="display: inline-block;">Buy <span style="color: pink;border: 3px solid purple;padding: 3px;">Magnificent</span> french fries</h3>
             <button id="Buy6" class="myButton" onclick="upgrade6()">$125000</button>
-            </div>
-            <div style="display: inline-flex;justify-content: space-between;width: 1000px;height: 50px;">
-            <p style="color: lightgray;">+$1 every second</p>
-            <p style="color: lightgray;float: right;">+$5 every second</p>
-            </div>
+            <p style="color: lightgray;">+$5 every second</p>
             </div>
             <br>
             <button id="resetBtn" onclick="reset()" class="myButton">Reset</button>
@@ -94,8 +88,6 @@
             var up6Used = 0;
             //points gained per second
             var perSecF = 1;
-	    //A variable that says if the user is on mobile
-	    var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
             //the function used in the mainMenu to open the rest of the game and hide the mainMenu
             function startGame(){
                 document.getElementById("play").style.display = "inline-block"
@@ -305,6 +297,11 @@
                 padding: 0px;
                 overflow-x: hidden; 
                 }
+            .upgradeContainer{
+            	width: 400px;
+            	height: 150px;
+            }
+
 			.myButton {
 				background-color:#44c767;
 				-moz-border-radius:28px;
@@ -341,67 +338,6 @@
         		-ms-user-select: none;
             	user-select: none; 
 			}
-			
-			/* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
-}
-
-/* Smartphones (landscape) ----------- */
-@media only screen 
-and (min-width : 321px) {
-/* Styles */
-}
-
-/* Smartphones (portrait) ----------- */
-@media only screen 
-and (max-width : 320px) {
-/* Styles */
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-/* Styles */
-}
-
-/* iPads (landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) {
-/* Styles */
-}
-
-/* iPads (portrait) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-/* Styles */
-}
-
-/* Desktops and laptops ----------- */
-@media only screen 
-and (min-width : 1224px) {
-/* Styles */
-}
-
-/* Large screens ----------- */
-@media only screen 
-and (min-width : 1824px) {
-/* Styles */
-}
-
-/* iPhone 4 ----------- */
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
-/* Styles */
-}
 			</style>
 </body>
 </html>
