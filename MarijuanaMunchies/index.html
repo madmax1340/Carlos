@@ -50,7 +50,7 @@
             <!--This div is used to make one upgrade all the way to the right-->
             <div id="Container4" style="width:480px;height:300px;float: right;">
             <h3 id="Upgrade4Txt" style="display: inline-block;border-style: double;border-color: red;padding: 5px;">Buy <span style="color: red;font-weight: bold;">SUPER</span> <span style="font-weight: bold;color: purple;">EPIC</span> <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
-            <button id="Buy4" class="myButton" onclick="upgrade4()">$100000</button>
+            <button id="Buy4" class="myButton" onclick="upgrade4()">$10000</button>
             <p style="color: lightgray;">+$100 to every click</p><br>
             </div>
             <!-- A container to hold 2 upgrades on the same line -->
@@ -76,7 +76,7 @@
             var up1Cost = 10;
             var up2Cost = 100;
             var up3Cost = 1000;
-            var up4Cost = 100000;
+            var up4Cost = 10000;
             var up5Cost = 50000;
             var up6Cost = 125000;
             //how many times each upgrade had been clicked
@@ -119,7 +119,7 @@
                 up1Cost = parseInt(localStorage.getItem('up1Cost')) || 10;
                 up2Cost = parseInt(localStorage.getItem('up2Cost')) || 100;
                 up3Cost = parseInt(localStorage.getItem('up3Cost')) || 1000;
-                up4Cost = parseInt(localStorage.getItem('up4Cost')) || 100000;
+                up4Cost = parseInt(localStorage.getItem('up4Cost')) || 10000;
                 up5Cost = parseInt(localStorage.getItem('up5Cost')) || 50000;
                 up6Cost = parseInt(localStorage.getItem('up6Cost')) || 125000;
                 perSecF = parseInt(localStorage.getItem('perSecF')) || 0;
@@ -282,7 +282,7 @@
             up1Cost = 10;
             up2Cost = 100;
             up3Cost = 1000;
-            up4Cost = 100000;
+            up4Cost = 10000;
             up5Cost = 50000;
             up6Cost = 125000;
             localStorage.setItem('perClk', perClk);
