@@ -108,13 +108,80 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
         </div>
         </div>
 		<script onload="init()" type="text/javascript">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, user-scalable=0," />
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap');
+	body,h1,h2,h3,h4,h5,h6,p,a {font-family: 'Gloria Hallelujah', cursive;}
+	</style>
+	<div style="text-align: center;">
+    <!--gameScene contains all scenes such as mainMenu and the game itself (the 'play' div) -->
+	<div id="gameScene" style="display: inline-block; text-align: left; background-color: black;color: white;padding: 10px;max-width:1000px;width: 100%;height: 100%">
+        <!-- mainMenu contains everything that you see when the page is first loaded-->
+        <div id="mainMenu" style="max-width:1000px;width: 100%;height: 100%">
+	    <img src="https://i.ibb.co/Qbv9fnQ/420-Marley-Logo.jpg" style="display: block; margin-left: auto; margin-right: auto;width: 25%;height: 25%;" alt="420 Marley">
+            <h1 id="title" style="text-align: center;"><span style="border: double;border-color: green;border-width: 10px;padding: 5px;"> Marijauna's Munchies </span></h1>
+            <br><br><hr style="border: 5px solid green;border-radius: 3px;"><br>
+            <button class="myButton" onclick="startGame()" style="display: block; margin-left: auto; margin-right: auto;width: 50%;">Start</button>
+        </div>
+        <!-- play contains the clicker game itself-->
+        <div id="play" style="display: none;max-width:1000px;width: 100%;height: 100%;">
+		<h1 id="title" style="text-align: center;"><span style="border: double;border-color: green;border-width: 10px;padding: 5px;"> Marijauna's Munchies </span></h1>
+		<div id="container0" style="display: inline-block;max-width: 1000px;width: 100%;height: 150px;">
+			<h2 id="everyClk" style="display: inline-block;">Click to sell $1 of marijuana</h2>
+			<a class="myButton" style="display: inline-block;" onclick="clickBtn()"><img src="https://i.ibb.co/y0C1dCj/Marijuana-Button.png"></a>
+			<img src="https://i.ibb.co/VYsKP3D/Running-Weed.gif" style="float: right;margin-right: 10%;display: inline-flex;">
+            </div><br>
+			<h3 id="totalTitle">You have $0</h3>
+			<br><br><hr style="border: 5px solid green;border-radius: 3px;">
+            <!-- A container to hold 2 upgrades on the same line -->
+            <div id="Container1" class="upgradeContainer"style="float: left;">
+            <h3 id="Upgrade1Txt" style="display: inline-block;">Buy <span style="color: lightgray;">regular</span> Tortilla Chips</h3>
+            <button id="Buy1" class="myButton" onclick="upgrade1()">$10</button>
+            <p style="display: inline-block;color: lightgray;">+$1 to every click</p><br>
+        	</div>
+            <!--This div is used to make one upgrade all the way to the right-->
+            <div id="Container2"class="upgradeContainer"style="float: right;">
+            <h3 id="Upgrade2Txt" style="display: inline-block;">Buy <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
+            <button id="Buy2" style=""class="myButton" onclick="upgrade2()">$100</button>
+            <p style="color: lightgray;">+$5 to every click</p><br>
+		    </div>
+            <!-- A container to hold 2 upgrades on the same line -->
+            <div id="Container3" class="upgradeContainer"style="display: inline-block;float: left;">
+            <h3 id="Upgrade3Txt" style="display: inline-block;">Buy <span style="font-weight: bold;color: purple;">EPIC</span> <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
+            <button id="Buy3" class="myButton" onclick="upgrade3()">$1000</button>
+            <p style="color: lightgray;">+$25 to every click</p><br>
+        	</div>
+            <!--This div is used to make one upgrade all the way to the right-->
+            <div id="Container4" style="width:480px;height:300px;float: right;">
+            <h3 id="Upgrade4Txt" style="display: inline-block;border-style: double;border-color: red;padding: 5px;">Buy <span style="color: red;font-weight: bold;">SUPER</span> <span style="font-weight: bold;color: purple;">EPIC</span> <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
+            <button id="Buy4" class="myButton" onclick="upgrade4()">$10000</button>
+            <p style="color: lightgray;">+$100 to every click</p><br>
+            </div>
+            <!-- A container to hold 2 upgrades on the same line -->
+            <div id="Container5" class="upgradeContainer"style="display: inline-block;float: left;">
+            <h3 id="Upgrade5Txt" style="display: inline-block;">Buy <span style="color: gray;">orginary</span> french fries</h3>
+            <button id="Buy5" class="myButton" onclick="upgrade5()">$50000</button>
+            <p style="color: lightgray;">+$1 every second</p><br>
+        	</div>
+            <!--This div is used to make one upgrade all the way to the right-->
+            <div id="Container6" class="upgradeContainer"style="float: right;">
+            <h3 id="Upgrade6Txt" style="display: inline-block;">Buy <span style="color: pink;border: 3px solid purple;padding: 3px;">Magnificent</span> french fries</h3>
+            <button id="Buy6" class="myButton" onclick="upgrade6()">$125000</button>
+            <p style="color: lightgray;">+$5 every second</p><br>
+            </div>
+            <br>
+            <button id="resetBtn" onclick="reset()" class="myButton">Reset</button>
+        </div>
+        </div>
+		<script onload="init()" type="text/javascript">
 			var perClk = 1;
 			var total = 0;
             //basecost of each upgrade
             var up1Cost = 10;
             var up2Cost = 100;
             var up3Cost = 1000;
-            var up4Cost = 100000;
+            var up4Cost = 10000;
             var up5Cost = 50000;
             var up6Cost = 125000;
             //how many times each upgrade had been clicked
@@ -125,7 +192,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             var up5Used = 0;
             var up6Used = 0;
             //points gained per second
-            var perSecF = 1;
+            var perSecF = 0;
             //A variable that says if the user is on mobile
 	    	var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
             //the function used in the mainMenu to open the rest of the game and hide the mainMenu
@@ -135,6 +202,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             }
             //When the body tag loads it sets an interval to happen every second
            	function init() {
+		save();
                 window.setInterval(perSec, 1000);
                 if(is_mobile===true){
                 	document.getElementById("Container2").style.float = "left";
@@ -156,7 +224,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
                 up1Cost = parseInt(localStorage.getItem('up1Cost')) || 10;
                 up2Cost = parseInt(localStorage.getItem('up2Cost')) || 100;
                 up3Cost = parseInt(localStorage.getItem('up3Cost')) || 1000;
-                up4Cost = parseInt(localStorage.getItem('up4Cost')) || 100000;
+                up4Cost = parseInt(localStorage.getItem('up4Cost')) || 10000;
                 up5Cost = parseInt(localStorage.getItem('up5Cost')) || 50000;
                 up6Cost = parseInt(localStorage.getItem('up6Cost')) || 125000;
                 perSecF = parseInt(localStorage.getItem('perSecF')) || 0;
@@ -319,7 +387,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             up1Cost = 10;
             up2Cost = 100;
             up3Cost = 1000;
-            up4Cost = 100000;
+            up4Cost = 10000;
             up5Cost = 50000;
             up6Cost = 125000;
             localStorage.setItem('perClk', perClk);
@@ -335,7 +403,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             }
             }
 		</script>
-		<style onload="save()">
+		<style onload="init()">
             html,body{
                 width: 100%;
                 margin: 0px;
@@ -385,7 +453,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
 			}
 			
 			</style>
-    </div>
+		</div>
   <hr>
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
