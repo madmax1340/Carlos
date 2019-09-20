@@ -97,6 +97,7 @@
             }
             //When the body tag loads it sets an interval to happen every second
            	function init() {
+		save();
                 window.setInterval(perSec, 1000);
                 if(is_mobile===true){
                 	document.getElementById("Container2").style.float = "left";
