@@ -1,71 +1,34 @@
 <!DOCTYPE html>
 <html>
-<title>Save The Turtles - CoolMaxGames</title>
-<meta charset="UTF-8">
-<meta name="description" content="PLASTIC CLICKER OUT NOW! Have fun playing games at COOLMAXGAMES!">
-<meta name="keywords" content="Cool,Max,Games,Fun,Learn,Epic,Awesome">
-<meta name="author" content="Cool Max">
-<meta name="title" content="CoolMaxGames">
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131762973-1"></script>
-	<script>
-  	window.dataLayer = window.dataLayer || [];
-  	function gtag(){dataLayer.push(arguments);}
-  	gtag('js', new Date());
-  	gtag('config', 'UA-131762973-1');
-	</script>
-
-<link rel="icon" href="coolmaxgames.ico">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, user-scalable=0," />
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
-.w3-bar-block .w3-bar-item {padding:20px}
-</style>
-<body>
-
-<!-- Sidebar (hidden by default) -->
-<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button" style="background-color: darkred;color: white">Close Menu</a>
-  <a href="home/" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
-  <a href="viewGames/" onclick="w3_close()" class="w3-bar-item w3-button">All Games</a>
-  <a href="Blog/BlogHome" onclick="w3_close()" class="w3-bar-item w3-button">Blog</a>
-  <a href="Contact/" onclick="w3_close()" class="w3-bar-item w3-button">Contact Us</a>
-</nav>
-
-<!-- Top menu -->
-<div class="w3-top">
-  <div class="w3-blue w3-xlarge" style="max-width:1200px;margin:auto">
-    <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-    <div class="w3-right w3-padding-16"></div>
-    <div class="w3-center w3-padding-16">Save The Turtles</div>
-  </div>
-</div>
-  
-<!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top: 150px;">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+        <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, user-scalable=0," />
 	<style>
-	@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans&display=swap');
-	h1,h2,{font-family: 'Indie Flower', cursive;}
-	body,h3,h4,h5,h6,p,a {font-family: 'Open Sans', sans-serif;}
+	@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap');
+	body,h1,h2,h3,h4,h5,h6,p,a {font-family: 'Gloria Hallelujah', cursive;}
+	@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
 	</style>
+	<div style="text-align: center;">
     <!--gameScene contains all scenes such as mainMenu and the game itself (the 'play' div) -->
-	<div id="gameScene" background="OceanBg.jpg" style="display: inline-block; text-align: left;color: white;padding: 10px;max-width:1200px;width: 1200px;height: 1200px">
+	<div id="gameScene" style="display: inline-block; text-align: left;color: white; padding: 10px;width: 100%;height: 100%">
         <!-- mainMenu contains everything that you see when the page is first loaded-->
-        <div id="mainMenu" style="max-width:1000px;width: 100%;height: 100%">
-            <h1 id="title" style="text-align: center;"><span style="border: double;border-color: whiet;border-width: 10px;padding: 5px;"> Save the Turtles</span></h1>
+        <div id="mainMenu" style=" width:100%;height: 100%">
+            <h1 id="title" style="text-align: center;"><span style="border: double;border-color: white;border-width: 10px;padding: 5px;"> Save the Turtles </span></h1>
             <br><br><hr style="border: 5px solid white;border-radius: 3px;"><br>
             <button class="myButton" onclick="startGame()" style="display: block; margin-left: auto; margin-right: auto;width: 50%;">Start</button>
         </div>
         <!-- play contains the clicker game itself-->
-        <div id="play" style="display: none;max-width:1000px;width: 100%;height: 100%;">
+        <div id="play" style="display: none;width: 100%;height: 100%;">
 		<h1 id="title" style="text-align: center;"><span style="border: double;border-color: white;border-width: 10px;padding: 5px;"> Save the Turtles </span></h1>
 		<div id="container0" style="display: inline-block;max-width: 1000px;width: 100%;height: 150px;">
 			<h2 id="everyClk" style="display: inline-block;">Click to sell $1 of metal straws</h2>
-			<a class="myButton" style="display: inline-block;" onclick="clickBtn()">Click Me!</a>
-            </div><br>
+			<a class="myButton" style="display: inline-block;" onclick="clickBtn()">Click</a>
 			<h3 id="totalTitle">You have $0</h3>
 			<br><br><hr style="border: 5px solid white;border-radius: 3px;">
             <!-- A container to hold 2 upgrades on the same line -->
@@ -142,8 +105,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
                 	document.getElementById("Container2").style.float = "left";
                 	document.getElementById("Container4").style.float = "left";
                 	document.getElementById("Container6").style.float = "left";
-			document.getElementById("gameScene").style.width = "100%";
-			document.getElementById("gameScene").style.height = "100%";
                 }
             }
             //this function is called every second (interval of 1000)
@@ -345,10 +306,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
                 margin: 0px;
                 padding: 0px;
                 overflow-x: hidden;
-
+                }
             .upgradeContainer{
             	width: 400px;
             	height: 200px;
+            }
+
+            body{
+              background-color: #fcf1a9;
+              background-image: url("https://github.com/otherMax/Carlos/blob/master/SaveTheTurtles/OceanBg.jpg?raw=true");
+              background-size: auto; background-repeat: no-repeat;
             }
 			.myButton {
 				display: inline-block;
@@ -372,13 +339,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             	touch-action: manipulation;
 			}
 			.myButton:hover {
-				background-color: #7789cb;
+				background-color:#7789cb;
 			}
-			.mybutton:active {
-  				background-color: #7789cb;
+			.myButton:active {
+				background-color: #7789cb;
   				box-shadow: 0 5px #666;
   				transform: translateY(4px);
-				}
+			}
 			.noselect {
   				-webkit-touch-callout: none;
     			-webkit-user-select: none; 
@@ -390,32 +357,5 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
 			
 			</style>
 		</div>
-  <hr>
-  <!-- Footer -->
-  <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
-  <h4>Find Us</h4>
-  <a class="w3-button w3-large w3-blue" href="https://www.instagram.com/coolmaxgames/" title="Instagram"><i class="fab fa-instagram"></i></a>
-  <a class="w3-button w3-large w3-blue" href="https://discord.gg/QfHPHcj" title="Discord"><i class="fab fa-discord"></i></a>
-  <a class="w3-button w3-large w3-blue" href="https://github.com/otherMax/Carlos" title="GitHub"><i class="fab fa-github"></i></a>
-  <div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-  <p>CoolMaxGames 2019</p>
-  </div>
-</footer>
-
-<!-- End page content -->
-</div>
-
-<script>
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
-
-</body>
+  </body>
 </html>
