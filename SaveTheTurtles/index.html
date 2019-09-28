@@ -3,20 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Save the Turtles - CoolMaxGames</title>
   </head>
   <body>
         <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, user-scalable=0," />
 	<style>
-	@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap');
-	body,h1,h2,h3,h4,h5,h6,p,a {font-family: 'Gloria Hallelujah', cursive;}
-	@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+	@import url('https://fonts.googleapis.com/css?family=Chicle&display=swap');
+	body,h1,h2,h3,h4,h5,h6,p,a {font-family: 'Chicle', cursive;}
 	</style>
 	<div style="text-align: center;">
     <!--gameScene contains all scenes such as mainMenu and the game itself (the 'play' div) -->
-	<div id="gameScene" style="display: inline-block; text-align: left;color: white; padding: 10px;width: 100%;height: 100%">
+	<div id="gameScene" style="display: inline-block; text-align: left;color: white; padding: 10px;width: 100%;height: 2000px">
         <!-- mainMenu contains everything that you see when the page is first loaded-->
         <div id="mainMenu" style=" width:100%;height: 100%">
             <h1 id="title" style="text-align: center;"><span style="border: double;border-color: white;border-width: 10px;padding: 5px;"> Save the Turtles </span></h1>
@@ -24,46 +22,46 @@
             <button class="myButton" onclick="startGame()" style="display: block; margin-left: auto; margin-right: auto;width: 50%;">Start</button>
         </div>
         <!-- play contains the clicker game itself-->
-        <div id="play" style="display: none;width: 100%;height: 100%;">
+        <div id="play" style="display: none;width: 100%;height: 100%;text-align: center;">
 		<h1 id="title" style="text-align: center;"><span style="border: double;border-color: white;border-width: 10px;padding: 5px;"> Save the Turtles </span></h1>
 		<div id="container0" style="display: inline-block;max-width: 1000px;width: 100%;height: 150px;">
 			<h2 id="everyClk" style="display: inline-block;">Click to sell $1 of metal straws</h2>
-			<a class="myButton" style="display: inline-block;" onclick="clickBtn()">Click</a>
+			<a class="myButton" style="display: inline-block;" onclick="clickBtn()">Sell</a>
 			<h3 id="totalTitle">You have $0</h3>
 			<br><br><hr style="border: 5px solid white;border-radius: 3px;">
             <!-- A container to hold 2 upgrades on the same line -->
             <div id="Container1" class="upgradeContainer"style="float: left;">
-            <h3 id="Upgrade1Txt" style="display: inline-block;">Buy <span style="color: lightgray;">regular</span> Tortilla Chips</h3>
+            <h3 id="Upgrade1Txt" style="display: inline-block;">Buy <span style="color: lightgray;">a regular</span> scrunchie</h3>
             <button id="Buy1" class="myButton" onclick="upgrade1()">$10</button>
             <p style="display: inline-block;color: lightgray;">+$1 to every click</p><br>
         	</div>
             <!--This div is used to make one upgrade all the way to the right-->
             <div id="Container2"class="upgradeContainer"style="float: right;">
-            <h3 id="Upgrade2Txt" style="display: inline-block;">Buy <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
+            <h3 id="Upgrade2Txt" style="display: inline-block;">Buy a <span style="color: gold; font-style: italic;">GOLDEN</span> Scrunchie</h3>
             <button id="Buy2" style=""class="myButton" onclick="upgrade2()">$100</button>
             <p style="color: lightgray;">+$5 to every click</p><br>
 		    </div>
             <!-- A container to hold 2 upgrades on the same line -->
             <div id="Container3" class="upgradeContainer"style="display: inline-block;float: left;">
-            <h3 id="Upgrade3Txt" style="display: inline-block;">Buy <span style="font-weight: bold;color: purple;">EPIC</span> <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
+            <h3 id="Upgrade3Txt" style="display: inline-block;">Buy a <span style="font-weight: bold;color: #ffd1dc;">cute</span> <span style="color: lightgreen; font-style: italic;">oversized</span> t-shirt</h3>
             <button id="Buy3" class="myButton" onclick="upgrade3()">$1000</button>
             <p style="color: lightgray;">+$25 to every click</p><br>
         	</div>
             <!--This div is used to make one upgrade all the way to the right-->
             <div id="Container4" style="width:480px;height:300px;float: right;">
-            <h3 id="Upgrade4Txt" style="display: inline-block;border-style: double;border-color: red;padding: 5px;">Buy <span style="color: red;font-weight: bold;">SUPER</span> <span style="font-weight: bold;color: purple;">EPIC</span> <span style="color: gold; font-style: italic;">Cheesy</span> Tortilla Chips</h3>
+            <h3 id="Upgrade4Txt" style="display: inline-block;border-style: double;border-color: #ffdab9;padding: 5px;">Buy <span style="color: #ffdab9;font-weight: bold;">BASIC</span> <span style="font-weight: bold;color: #ffd1dc;;">cute</span> <span style="border-radius: 35px;background: white;padding: 5px;color: lightblue; font-style: italic;">Chilly</span> water bottle</h3>
             <button id="Buy4" class="myButton" onclick="upgrade4()">$10000</button>
             <p style="color: lightgray;">+$100 to every click</p><br>
             </div>
             <!-- A container to hold 2 upgrades on the same line -->
             <div id="Container5" class="upgradeContainer"style="display: inline-block;float: left;">
-            <h3 id="Upgrade5Txt" style="display: inline-block;">Buy <span style="color: gray;">orginary</span> french fries</h3>
+            <h3 id="Upgrade5Txt" style="display: inline-block;">Buy <span style="color: gray;">orginary</span> sandals</h3>
             <button id="Buy5" class="myButton" onclick="upgrade5()">$50000</button>
             <p style="color: lightgray;">+$1 every second</p><br>
         	</div>
             <!--This div is used to make one upgrade all the way to the right-->
             <div id="Container6" class="upgradeContainer"style="float: right;">
-            <h3 id="Upgrade6Txt" style="display: inline-block;">Buy <span style="color: pink;border: 3px solid purple;padding: 3px;">Magnificent</span> french fries</h3>
+            <h3 id="Upgrade6Txt" style="display: inline-block;">Buy <span style="color: pink;border: 3px solid purple;padding: 3px;">Magnificent</span> photo filters</h3>
             <button id="Buy6" class="myButton" onclick="upgrade6()">$125000</button>
             <p style="color: lightgray;">+$5 every second</p><br>
             </div>
@@ -126,7 +124,7 @@
                 up6Cost = parseInt(localStorage.getItem('up6Cost')) || 125000;
                 perSecF = parseInt(localStorage.getItem('perSecF')) || 0;
 				document.getElementById("totalTitle").innerHTML = "You have $" + total;
-                document.getElementById("everyClk").innerHTML = "Click to sell $" + perClk + " of marijauna";
+                document.getElementById("everyClk").innerHTML = "Click to sell $" + perClk + " of metal straws";
                 document.getElementById("Buy1").innerHTML = "$" + up1Cost;
                 document.getElementById("Buy2").innerHTML = "$" + up2Cost;
                 document.getElementById("Buy3").innerHTML = "$" + up3Cost;
@@ -307,15 +305,36 @@
                 padding: 0px;
                 overflow-x: hidden;
                 }
+                h1{
+                  font-size: 65px;
+                }
+                h2{
+                  font-size:45px;
+                }
+                h3{
+                  font-size: 35px;
+                }
+                p{
+                  font-size: 25px;
+                  color: gainsboro;
+                }
             .upgradeContainer{
             	width: 400px;
             	height: 200px;
             }
 
-            body{
+            #gameScene{
               background-color: #fcf1a9;
-              background-image: url("https://github.com/otherMax/Carlos/blob/master/SaveTheTurtles/OceanBg.jpg?raw=true");
-              background-size: auto; background-repeat: no-repeat;
+              background-image: linear-gradient(#37bfde, #fcf1a9);
+              background-size: 100% 2000px;
+              background-repeat: no-repeat;
+            }
+            #resetBtn{
+              position: fixed;
+              text-align: center;
+              width: 110px;
+              bottom: 10px;
+              background-color: darkred;
             }
 			.myButton {
 				display: inline-block;
