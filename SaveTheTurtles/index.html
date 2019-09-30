@@ -94,13 +94,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             <div id="Container5" class="upgradeContainer"style="display: inline-block;float: left;">
             <h3 id="Upgrade5Txt" style="display: inline-block;">Buy <span style="color: gray;">orginary</span> sandals</h3>
             <button id="Buy5" class="myButton" onclick="upgrade5()">$50000</button>
-            <p style="color: lightgray;">+$1 every second</p><br>
+            <p style="color: lightgray;">+$25 every second</p><br>
             </div>
             <!--This div is used to make one upgrade all the way to the right-->
             <div id="Container6" class="upgradeContainer"style="float: right;">
             <h3 id="Upgrade6Txt" style="display: inline-block;">Buy <span style="color: pink;border: 3px solid purple;padding: 3px;">Magnificent</span> photo filters</h3>
             <button id="Buy6" class="myButton" onclick="upgrade6()">$125000</button>
-            <p style="color: lightgray;">+$5 every second</p><br>
+            <p style="color: lightgray;">+$100 every second</p><br>
             </div>
             <br>
             <button id="resetBtn" onclick="reset()" class="myButton">Reset</button>
@@ -265,11 +265,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
                 localStorage.setItem('perSecF', perSecF);
                 save();
             }
-            //upgrade 5 adds 1 to how much you get every second
+            //upgrade 5 adds 25 to how much you get every second
             function upgrade5(){
                 save();
                 if (total>=up5Cost){
-                perSecF += 1;
+                perSecF += 25;
                 up5Used += 1;
                 total -= up5Cost;
                 up5Cost += (2000 * (100*up5Used));//Math.round(25000 + Math.pow(1.5, up5Used));
@@ -287,11 +287,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
                 localStorage.setItem('perSecF', perSecF);
                 save();
             }
-            //upgrade 5 adds 1 to how much you get every second
+            //upgrade 5 adds 100 to how much you get every second
             function upgrade6(){
                 save();
                 if (total>=up6Cost){
-                perSecF += 5;
+                perSecF += 100;
                 up6Used += 1;
                 total -= up6Cost;
                 up6Cost += (5000 * (100*up6Used));//Math.round(1000 + Math.pow(1.5, up6Used));
