@@ -102,6 +102,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             <p style="color: lightgray;">+$100 every second</p><br>
             </div>
             <br>
+		<!-- A container to hold ULTIMATE upgrades-->
+            <div id="UltimateUpg" class="upgradeContainer"style="display: inline-block;float: left;background-color:white;border-radius: 25px;border-color:red;">
+            <h3 id="UltimateUpgTxt" style="display: inline-block;">Buy <span style="color: pink;font size:60;border-color: #c2fe59;border-style: dotted dashed solid double; padding: 20px;">ULTIMATE SUPRISE</span> </h3>
+            <button id="BuyUltimate" class="myButton" onclick="ultimateUpg()">$9999999</button>
+            <p style="color: lightgray;">the ultimate upgrade</p><br>
+            </div>
             <button id="resetBtn" onclick="reset()" class="myButton">Reset</button>
         </div>
         </div>
@@ -115,6 +121,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             var up4Cost = 10000;
             var up5Cost = 50000;
             var up6Cost = 125000;
+	    var UltimateCost = 9999999;
             //how many times each upgrade had been clicked
             var up1Used = 0;
             var up2Used = 0;
@@ -307,6 +314,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
                 localStorage.setItem('up6Cost', up6Cost);
                 localStorage.setItem('perSecF', perSecF);
                 save();
+            }
+		//ULTIMATE upgrade 
+            function ultimateUpg(){
+                save();
+                if (total>=UltimateCost){
+		document.getElementbyId("play").innerHTML.style = "display: none;";
+		document.getElementbyId("gameScene").innerHTML.style = "background-image: url();"
+                }
             }
             //This function resets all variables back to their original state. This also changes the local storage
             function reset(){
