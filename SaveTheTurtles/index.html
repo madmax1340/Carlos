@@ -121,7 +121,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             var up4Cost = 10000;
             var up5Cost = 50000;
             var up6Cost = 125000;
-	    var UltimateCost = 9999999;
+	    var UltimateCost = 999999;
             //how many times each upgrade had been clicked
             var up1Used = 0;
             var up2Used = 0;
@@ -319,6 +319,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             function ultimateUpg(){
                 save();
                 if (total>=UltimateCost){
+			total -= UltimateCost;
 		document.getElementbyId("play").innerHTML.style = "display: none;";
 		document.getElementbyId("gameScene").innerHTML.style = "background-image: src(uraclown.png);"
                 }
