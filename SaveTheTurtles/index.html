@@ -319,9 +319,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
             function ultimateUpg(){
                 save();
                 if (total>=UltimateCost){
-			total -= UltimateCost;
-			document.getElementbyId("play").style.display = "none";
-			document.getElementbyId("gameScene").style.display = "src(uraclown.png)";
+		total -= UltimateCost;
+		document.getElementById("play").style.display = "none"
+		document.getElementbyId("gameScene").style.backgroundImage = "url(uraclown.png)";
                 }
             }
             //This function resets all variables back to their original state. This also changes the local storage
