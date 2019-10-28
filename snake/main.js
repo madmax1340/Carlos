@@ -175,5 +175,5 @@ function init() {
         if (menu) ctx.fillText("Click to start!", canvas.width / 2 - 75, canvas.height / 2);
     });
 
-    }, 300);
+    }, 150);
 }
