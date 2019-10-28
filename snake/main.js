@@ -53,7 +53,7 @@ function restart() {
     lost = false;
     menu = false;
 
-    var head = { x: 375, y: 250, dir: "d", };
+    head = { x: 375, y: 250, dir: "d", };
 
     apple = { x: Math.floor(Math.random() * 30) * 25, y: Math.floor(Math.random() * 20) * 25,};
 
