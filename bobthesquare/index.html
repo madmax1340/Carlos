@@ -159,8 +159,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
 
 //Checks when the mouse is pressed
   document.addEventListener('mousedown', (e) => {
-    mouseClk.x = e.pageX;
-    mouseClk.y = e.pageY;
+    mouseClk.x = e.clientX - canvas.offsetLeft;
+    mouseClk.y = e.clientY - canvas.offsetTop;
     if(collision(mouseClk, startBtn)){
       start();
     }
