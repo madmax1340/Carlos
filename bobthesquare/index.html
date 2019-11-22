@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>Bob the Square - CoolMaxGames </title>
+<script data-ad-client="ca-pub-4301443140481083" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta charset="UTF-8">
+<meta name="description" content="Bob The Sqaure Out for Free on Cool Max Games">
+<meta name="keywords" content="Cool,Max,Games,Fun,Learn">
+<meta name="author" content="Cool Max">
+<meta name="title" content="Bob the Square - CoolMaxGames">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131762973-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-131762973-1');
+  </script>
+
+<link rel="icon" href="../coolmaxgames.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
+  </head>
+<body>
+
+<!-- Sidebar (hidden by default) -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button" style="background-color: darkred;color: white">Close Menu</a>
+  <a href="../home/" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+  <a href="../viewGames/" onclick="w3_close()" class="w3-bar-item w3-button">All Games</a>
+  <a href="../Contact/" onclick="w3_close()" class="w3-bar-item w3-button">Contact Us</a>
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top">
+  <div class="w3-blue w3-xlarge" style="max-width:1200px;margin:auto">
+    <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
+    <div class="w3-right w3-padding-16"></div>
+    <div class="w3-center w3-padding-16">Bob the Square</div>
+  </div>
+</div>
+  
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+<body onload="init()">
+    <canvas id="canvas"width="550" height="500" style="border:2px solid #c3c3c3;margin-left: auto; margin-right: auto;"> Your browser does not support the canvas element.</canvas>
+    <script>
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var goUp, goDown, goLeft, goRight;
+  var s1Active = true, s2Active, allowMove = true;
+  //THe current active level
+  var score =0;
+  //The amount the enemy walls move up or down
+  var heightIncrease =0;
+  //the counter of how much points until speed increases
+  var increaseCount = 10;
+  //The player object
+  var player = {
+    x: 50,
+    y: 50,
+    width: 50,
+    height: 50,
+    speed: 10,
+    color: '#03b6fc',
+  };
+  //the object of the starting button
+  var startBtn = {
+    x: 200,
+    y: 350,
+    width: 150,
+    height: 75,
+    color: 'grey',
+    text: "Start",
+    font: "30px Arial"
+  }
+  //the upper red wall
+  var wall1 = {
+    //x: 300,
+    x: 400,
+    y: -200,
+    width: 50,
+    height: 500,
+    speed: 1,
+    color: 'red',
+  }
+  //the lower red wall
+  var wall2 = {
+    //x: 300,
+    x: 400,
+    y: 400,
+    width: 50,
+    height: 500,
+    speed: 1,
+    color: 'darkred',
+  }
+  //the wall at the end that brings you to the next scene
+  var end = {
+    x: 500,
+    y: 0,
+    width: 50,
+    height: 500,
+    color: 'lightgrey',
+  }
+  //the position of where the mouse clicked
+  var mouseClk = {
+    x: 0,
+    y: 0,
+    width: 1,
+    height: 1,
+  }
+
+  //Checks when the key is pressed and starts the movement of the player
+  document.addEventListener('keydown', (e) => {
+    // if the 'd' is pressed
+    if (e.key == 'd' || e.key == 'D' || e.key == 'ArrowRight') {
+      goRight = true;
+    }
+    // if the 'a' is pressed
+    if (e.key == 'a' || e.key == 'A' || e.key == 'ArrowLeft') {
+      goLeft = true;
+    }
+    // if the 'w' is pressed
+    if (e.key == 'w' || e.key == 'W' || e.key == 'ArrowUp') {
+      goUp = true;
+    }
+    // if the 's' is pressed
+    if (e.key == 's' || e.key == 'S' || e.key == 'ArrowDown') {
+      goDown = true;
+    }
+  }, false);
+
+
+  // When the key is released the player stops movement
+  document.addEventListener('keyup', (e) => {
+    // if the 'd' is pressed
+    if (e.key == 'd' || e.key == 'D' || e.key == 'ArrowRight') {
+      goRight = false;
+    }
+    // if the 'a' is pressed
+    if (e.key == 'a' || e.key == 'A' || e.key == 'ArrowLeft') {
+      goLeft = false;
+    }
+    // if the 'w' is pressed
+    if (e.key == 'w' || e.key == 'W' || e.key == 'ArrowUp') {
+      goUp = false;
+    }
+    // if the 's' is pressed
+    if (e.key == 's' || e.key == 'S' || e.key == 'ArrowDown') {
+      goDown = false;
+    }
+  }, false);
+
+//Checks when the mouse is pressed
+  document.addEventListener('mousedown', (e) => {
+    mouseClk.x = e.pageX;
+    mouseClk.y = e.pageY;
+    if(collision(mouseClk, startBtn)){
+      start();
+    }
+  }, false);
+
+  //When the page loads a clock starts to run 45 times every second which runs the update function that holds game logic
+  function init(){
+    setInterval(update, 1000/45);
+  }
+
+  //Functions moving the player different directions
+  function moveRight(){ //right
+    if(player.x<=(500-player.speed)){
+    player.x+= player.speed;
+    }
+  }
+
+  function moveLeft(){ //left
+    if(player.x>=(0+player.speed)){
+    player.x-= player.speed;
+    }
+  }
+
+  function moveDown(){ //down
+    if(player.y<=(450-player.speed)){
+    player.y+= player.speed;
+    }
+  }
+
+  function moveUp(){ //up
+    if(player.y>=(0+player.speed)){
+    player.y-= player.speed;
+    }
+  }
+
+  //This function is called when the player dies
+  function die(){
+    wall1.x = 400;
+    wall2.x = 400;
+    player.x = 50;
+    player.y = 50;
+    score = 1;
+    wall1.y = Math.round((Math.random()*400) -500);
+    wall2.y = wall1.y + wall1.height + 100;
+    wall1.speed = 1;
+    wall2.speed = wall1.speed;
+    wall1.color = 'red';
+    wall2.color = 'darkred';
+  }
+
+  //This function is called 45 times a second and updates game logic and calls the paint function
+  function update(){
+    //If the player is allowed to move
+    if(allowMove){
+    //Player Movement
+    if(goRight){
+      moveRight();
+    }
+    if(goLeft){
+      moveLeft();
+    }
+    if(goUp){
+      moveUp();
+    }
+    if(goDown){
+      moveDown();
+    }
+    }
+    /////////////////////////////////
+    //Only run when scene 1 is active
+    if(s1Active){
+    //When player collides with the start button
+    if (collision(player, startBtn)){
+      start();
+    }
+    }
+    /////////////////////////////////
+    //Only run when scene 2 is active
+    if(s2Active){
+      //Moves the red walls accross the screen
+      wall1.x -= wall1.speed;
+      wall2.x = wall1.x;
+      //moves the red walls up and down when score is 5 or moveRight
+        if(score>=5){
+        wall1.y += heightIncrease;
+        wall2.y = wall1.y + wall2.height + 100;
+      }
+      //if the player collides with the upper or lower walls his position is reset and score
+      if(collision(player, wall1) || collision(player, wall2)){
+        die();
+      }
+      //if the player collides with the end wall
+      if(collision(player, end)){
+        wall1.x = 400;
+        wall2.x = 400;
+        player.x = 50;
+        player.y = 50;
+        score++;
+        wall1.y = Math.round((Math.random()*350) -450);
+        wall2.y = wall1.y + wall1.height + 100;
+        //increases red wall speed if score is 3
+        if(score == 3){
+          wall1.speed++;
+          wall2.speed++;
+        }
+        //Increases speed every 10 levels
+        if(increaseCount<=10 && increaseCount>0){
+          increaseCount--;
+        }else{
+          increaseCount = 10;
+          wall1.speed+=0.5;
+          wall2.speed+=0.5;
+        }
+        //random amount of height increase or decrease
+        heightIncrease = Math.round((Math.random()*wall1.speed) -wall1.speed/2);
+      }
+      //Changes enemy wall color based on score
+      if(score==10){
+        wall1.color = 'blue';
+        wall2.color = wall1.color;
+      }
+      if(score==20){
+        wall1.color = 'yellow';
+        wall2.color = wall1.color;
+      }
+      if(score==30){
+        wall1.color = 'orange';
+        wall2.color = wall1.color;
+      }
+      if(score==40){
+        wall1.color = 'green';
+        wall2.color = wall1.color;
+      }
+      if(score==50){
+        wall1.color = '#7FFFD4';
+        wall2.color = wall1.color;
+      }
+      if(score==60){
+        wall1.color = '#8A2BE2';
+        wall2.color = wall1.color;
+      }
+      if(score==70){
+        wall1.color = '#B22222';
+        wall2.color = wall1.color;
+      }
+      if(score==80){
+        wall1.color = '#ADFF2F';
+        wall2.color = wall1.color;
+      }
+      if(score==90){
+        wall1.color = '#EE82EE';
+        wall2.color = wall1.color;
+      }
+      if(score==100){
+        wall1.color = '#FFD700';
+        wall2.color = wall1.color;
+      }
+    }
+    //Updating Screen Visuals
+    paint();
+  }
+
+  //collision Function
+  function collision(obj1, obj2) {
+    return obj1.x + obj1.width > obj2.x && obj1.y + obj1.height > obj2.y && obj1.y < obj2.y + obj2.height && obj1.x < obj2.x + obj2.width;
+  }
+
+  //When the start button is touched
+  function start(){
+    s1Active = false;
+    s2Active = true;
+    player.x = 50;
+    player.y = 50;
+  }
+  //clears the canvas and repaints the objects on the screen
+  function paint(){
+    //Clearing the Canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+    ////////////////////////////////////////
+    //If scene 1 is active then this runs
+    ///////////////////////////////////////
+    if(s1Active){
+    //The Player
+    ctx.fillStyle = player.color;
+    ctx.fillRect(player.x,player.y,player.width,player.height);
+    //Title
+    ctx.fillStyle = 'black';
+    ctx.font = "60px Arial";
+    ctx.textAlign = "center"
+    ctx.fillText("Bob The Square", 260, 75);
+    //Start Button
+    ctx.fillStyle = startBtn.color;
+    ctx.fillRect(startBtn.x, startBtn.y,startBtn.width,startBtn.height);
+    //StartBtn Text
+    ctx.textAlign = "left";
+    ctx.fillStyle = "black";
+    ctx.font = "60px Arial";
+    ctx.font = startBtn.font;
+    ctx.fillText(startBtn.text, startBtn.x+40, startBtn.y+45);
+    //Help Text
+    ctx.textAlign = "left";
+    ctx.fillStyle = "lightgrey";
+    ctx.font = "20px Arial";
+    ctx.font = startBtn.font;
+    ctx.fillText("Move with WASD or Arrow Keys", 75, 200);
+    }
+    //////////////////////////////////////////
+    //If scene 2 is active then this runs
+    /////////////////////////////////////////
+    if(s2Active){
+      //Wall 1
+      ctx.fillStyle = wall1.color;
+      ctx.fillRect(wall1.x, wall1.y, wall1.width, wall1.height);
+      //Wall 2
+      ctx.fillStyle = wall2.color;
+      ctx.fillRect(wall2.x, wall2.y, wall2.width, wall2.height);
+      //The end on the side
+      ctx.fillStyle = end.color;
+      ctx.fillRect(end.x, end.y, end.width, end.height);
+      //The Player
+      ctx.fillStyle = player.color;
+      ctx.fillRect(player.x,player.y,player.width,player.height);
+      //Title
+      ctx.fillStyle = 'black';
+      ctx.font = "60px Arial";
+      ctx.textAlign = "center"
+      ctx.fillText("Score: " + score, 240, 75);
+    }
+  }
+
+</script>
+
+  </body>
+  <hr>
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+  <h4>Find Us</h4>
+  <a class="w3-button w3-large w3-blue" href="https://www.instagram.com/coolmaxgames/" title="Instagram"><i class="fab fa-instagram"></i></a>
+  <a class="w3-button w3-large w3-blue" href="https://discord.gg/QfHPHcj" title="Discord"><i class="fab fa-discord"></i></a>
+  <a class="w3-button w3-large w3-blue" href="https://github.com/otherMax/Carlos" title="GitHub"><i class="fab fa-github"></i></a>
+  <div>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <p>CoolMaxGames 2019</p>
+  </div>
+</footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>
