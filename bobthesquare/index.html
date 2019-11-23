@@ -70,7 +70,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
   var ctx = canvas.getContext("2d");
   var goUp, goDown, goLeft, goRight;
   var s1Active = true, s2Active, allowMove = true;
-  //THe current active level
+  //The current active level
   var score =0;
   //The amount the enemy walls move up or down
   var heightIncrease =0;
@@ -254,7 +254,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
     }
     /////////////////////////////////
     //Only run when scene 2 is active
+    /////////////////////////////////
     if(s2Active){
+      //Makes sure that the hole in the wall does not go off the screen
+      if(wall2.y>=500){
+        heightIncrease = 0;
+        wall2.y = 500;
+        wall1.y = 400 - wall1.height;
+      }
+      if((wall1.y + wall1.height)<=0){
+        heightIncrease = 0;
+        wall1.y= -500;
+        wall2.y= wall1.y + wall1.height + 100;
+      }
       //Moves the red walls accross the screen
       wall1.x -= wall1.speed;
       wall2.x = wall1.x;
@@ -274,7 +286,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
         player.x = 50;
         player.y = 50;
         score++;
-        wall1.y = Math.round((Math.random()*350) -450);
+        wall1.y = Math.round((Math.random()*400) -500);
         wall2.y = wall1.y + wall1.height + 100;
         //increases red wall speed if score is 3
         if(score == 3){
