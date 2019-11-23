@@ -10,21 +10,18 @@
 <meta name="title" content="Bob the Square - CoolMaxGames">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131762973-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-131762973-1');
-  </script>
-
-<link rel="icon" href="../coolmaxgames.ico">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
 .w3-bar-block .w3-bar-item {padding:20px}
+  .headerBtn {
+    border-width: 3px;
+    border-color: black;
+    background-color: lightgrey;
+    color: black;
+    border-radius: 20px;
+    border-style: solid;
+    cursor: pointer;
+  }
 </style>
   </head>
 <body>
@@ -39,13 +36,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
 
 <!-- Top menu -->
 <div class="w3-top">
-  <div class="w3-blue w3-xlarge" style="max-width:1200px;margin:auto">
+  <div class="w3-blue w3-xlarge" style="margin:auto;">
     <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
     <div class="w3-right w3-padding-16"></div>
-    <div class="w3-center w3-padding-16">Bob the Square</div>
+    <div class="w3-center w3-padding-16" style="font-size: 30px;">Cool Max Games</div>
+    <div class="w3-center w3-padding-16" style="font-size: 20px;">
+      <a href="../home/" onclick="w3_close()" ><button class="headerBtn">Home</button></a>
+      <a href="../viewGames/" onclick="w3_close()" ><button class="headerBtn">All Games</button></a>
+      <a href="../Contact/" onclick="w3_close()" ><button class="headerBtn">Contact Us</button></a>
+    </div>
   </div>
 </div>
-  
+
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px" align="center">
 <body onload="init()">
