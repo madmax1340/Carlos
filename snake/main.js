@@ -1,45 +1,14 @@
-var canvas, ctx;
+let canvas, ctx;
 
-var lost = false;
-var menu = true;
+let ready = true;
 
-var head = {
-    x: 375,
-    y: 250,
-    dir: "d",
-};
+let gameState = "start";
 
-var apple = {
-    x: Math.floor(Math.random() * 30) * 25,
-    y: Math.floor(Math.random() * 20) * 25,
-};
+let tails = [];
+let keys = [];
 
-var tails = [{
-        x: head.x - 25,
-        y: head.y,
-        par: undefined,
-        dir: "d",
-    },{
-        x: head.x - 50,
-        y: head.y,
-        par: undefined,
-        dir: "d",
-    },{
-        x: head.x - 50,
-        y: head.y - 25,
-        par: undefined,
-        dir: "s",
-    },{
-        x: head.x - 50,
-        y: head.y - 50,
-        par: undefined,
-        dir: "s",
-    },];
-
-tails[0].par = head;
-tails[1].par = tails[0];
-tails[2].par = tails[1];
-tails[3].par = tails[2];
+let head = {};
+let apple = {};
 
 function testCollision(obj) {
     return head.x < obj.x + 25 &&
@@ -48,10 +17,10 @@ function testCollision(obj) {
        25 + head.y > obj.y;
 }
 
-function restart() {
+function start() {
+    gameState = "playing";
 
-    lost = false;
-    menu = false;
+    ready = true;
 
     head = { x: 375, y: 250, dir: "d", };
 
@@ -68,22 +37,53 @@ function restart() {
     tails[3].par = tails[2];
 }
 
-function init() {
+document.onkeydown = function(e) {
+    keys.push(e.key);
+    if ((keys.includes("w") || keys.includes("W") || keys.includes("Up") || keys.includes("ArrowUp")) && (head.dir == "a" || head.dir == "d") && ready) {
+        head.dir = "w";
+        ready = false;
+    } else if ((keys.includes("a") || keys.includes("A") || keys.includes("Left") || keys.includes("ArrowLeft")) && (head.dir == "w" || head.dir == "s") && ready) {
+        head.dir = "a";
+        ready = false;
+    } else if ((keys.includes("s") || keys.includes("S") || keys.includes("Down") || keys.includes("ArrowDown")) && (head.dir == "a" || head.dir == "d") && ready) {
+        head.dir = "s";
+        ready = false;
+    } else if ((keys.includes("d") || keys.includes("D") || keys.includes("Right") || keys.includes("ArrowRight")) && (head.dir == "w" || head.dir == "s") && ready) {
+        head.dir = "d";
+        ready = false;
+    }
+    if (gameState == "dead") start();
+};
+
+document.onkeyup = function(e) {
+    while (keys.includes(e.key)) keys.splice(keys.indexOf(e.key), 1);
+    while (keys.includes(e.key.toLowerCase())) keys.splice(keys.indexOf(e.key.toLowerCase()), 1);
+    while (keys.includes(e.key.toUpperCase())) keys.splice(keys.indexOf(e.key.toUpperCase()), 1);
+};
+
+window.onload = function() {
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
     ctx.strokeStyle = 'black';
 
+    canvas.onmousedown = function() {
+        if (gameState == "start" || gameState == "dead") start();
+    };
     window.setInterval(function() {
 
-        if (!lost && !menu) {
+        if (gameState == "playing") {
             if (head.dir == "w") {
                 head.y -= 25;
-            } if (head.dir == "a") {
+                ready = true;
+            } else if (head.dir == "a") {
                 head.x -= 25;
-            } if (head.dir == "s") {
+                ready = true;
+            } else if (head.dir == "s") {
                 head.y += 25;
-            } if (head.dir == "d") {
+                ready = true;
+            } else if (head.dir == "d") {
                 head.x += 25;
+                ready = true;
             }
 
             tails.forEach(function(elem) {
@@ -108,13 +108,13 @@ function init() {
                 if (parent.dir == "w") {
                     tx = parent.x;
                     ty = parent.y + 25;
-                } if (parent.dir == "a") {
+                } else if (parent.dir == "a") {
                     tx = parent.x + 25;
                     ty = parent.y;
-                } if (parent.dir == "s") {
+                } else if (parent.dir == "s") {
                     tx = parent.x;
                     ty = parent.y - 25;
-                } if (parent.dir == "d") {
+                } else if (parent.dir == "d") {
                     tx = parent.x - 25;
                     ty = parent.y;
                 }
@@ -122,36 +122,29 @@ function init() {
                 tails.push({x: tx, y: ty, par: parent, dir: parent.dir});
             }
 
-            for (var i = tails.length-1; i > 0; i--) {
-                tails[i].dir = tails[i].par.dir;
-            }
-
+            for (var i = tails.length-1; i > 0; i--) tails[i].dir = tails[i].par.dir;
             tails[0].dir = head.dir;
 
-            if (head.x < 0) lost = true;
-            if (head.y < 0) lost = true;
-
-            if (head.x + 25 > canvas.width) lost = true;
-            if (head.y + 25 > canvas.height) lost = true;
+            if (head.x < 0 || head.y < 0 || head.x + 25 > canvas.width || head.y + 25 > canvas.height) gameState = "dead";
 
             for (i = 0; i < tails.length; i++) {
 
                 if (testCollision(tails[i])) {
-
-                    lost = true;
-
+                    gameState = "dead";
                     break;
                 }
             }
         }
+    }, 150);
+    render();
+};
 
+function render() {
     window.requestAnimationFrame(function() {
-
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.fillStyle = 'black';
         ctx.font = '32px Verdana';
-
         ctx.fillText(String(tails.length-4), 15, 40);
 
         ctx.fillStyle = 'red';
@@ -162,18 +155,14 @@ function init() {
         ctx.strokeRect(head.x, head.y, 25, 25);
 
         ctx.fillStyle = 'rgb(0, 255, 0)';
-
         tails.forEach(function(elem) {
             ctx.fillRect(elem.x, elem.y, 25, 25);
             ctx.strokeRect(elem.x, elem.y, 25, 25);
         });
 
         ctx.fillStyle = 'black';
-
-        if (lost) ctx.fillText("You Lost!", canvas.width / 2 - 75, canvas.height / 2);
-
-        if (menu) ctx.fillText("Click to start!", canvas.width / 2 - 75, canvas.height / 2);
+        if (gameState == "dead") ctx.fillText("You Lost!", canvas.width / 2 - 75, canvas.height / 2);
+        if (gameState == "start") ctx.fillText("Click to start!", canvas.width / 2 - 75, canvas.height / 2);
+        render();
     });
-
-    }, 150);
 }
