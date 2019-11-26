@@ -135,7 +135,7 @@ window.onload = function() {
                 }
             }
         }
-    }, 150);
+    }, 100);
     render();
 };
 
