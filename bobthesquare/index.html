@@ -135,18 +135,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
     // if the 'd' is pressed
     if (e.key == 'd' || e.key == 'D' || e.key == 'ArrowRight') {
       goRight = true;
+      e.preventDefault();
     }
     // if the 'a' is pressed
     if (e.key == 'a' || e.key == 'A' || e.key == 'ArrowLeft') {
       goLeft = true;
+      e.preventDefault();
     }
     // if the 'w' is pressed
     if (e.key == 'w' || e.key == 'W' || e.key == 'ArrowUp') {
       goUp = true;
+      e.preventDefault();
     }
     // if the 's' is pressed
     if (e.key == 's' || e.key == 'S' || e.key == 'ArrowDown') {
       goDown = true;
+      e.preventDefault();
     }
   }, false);
 
@@ -156,18 +160,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
     // if the 'd' is pressed
     if (e.key == 'd' || e.key == 'D' || e.key == 'ArrowRight') {
       goRight = false;
+      e.preventDefault();
     }
     // if the 'a' is pressed
     if (e.key == 'a' || e.key == 'A' || e.key == 'ArrowLeft') {
       goLeft = false;
+      e.preventDefault();
     }
     // if the 'w' is pressed
     if (e.key == 'w' || e.key == 'W' || e.key == 'ArrowUp') {
       goUp = false;
+      e.preventDefault();
     }
     // if the 's' is pressed
     if (e.key == 's' || e.key == 'S' || e.key == 'ArrowDown') {
       goDown = false;
+      e.preventDefault();
     }
   }, false);
 
