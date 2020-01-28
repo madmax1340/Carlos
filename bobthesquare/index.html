@@ -129,6 +129,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
     width: 1,
     height: 1,
   }
+  //Client Rectangle
+  var clientRect = canvas.getBoundingClientRect();
 
   //Checks when the key is pressed and starts the movement of the player
   document.addEventListener('keydown', (e) => {
@@ -181,8 +183,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Source Code Pro', monospace}
 
 //Checks when the mouse is pressed
   document.addEventListener('mousedown', (e) => {
-    mouseClk.x = e.clientX - canvas.offsetLeft;
-    mouseClk.y = e.clientY - canvas.offsetTop;
+    mouseClk.x = e.clientX - clientRect.left;
+    mouseClk.y = e.clientY - clientRect.top;
     if(collision(mouseClk, startBtn)){
       start();
     }
