@@ -1,10 +1,12 @@
 body {
     background-color: white;
 }
+
 article {
     background-color: lightgray;
     border: 5px solid black;
 }
+
 header {
     text-align: center;
 }
